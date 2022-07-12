@@ -12,7 +12,7 @@ class MainKtTest {
         val maestro = "Maestro"
 
         val result = commission(maestro, 100, 150)
-        assertEquals(0, result)
+        assertEquals(50, result)
 
     }
 
