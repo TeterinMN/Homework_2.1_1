@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW_2_1-1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.kt</span></div><h1>Main.kt</h1><pre class="source lang-java linenums">const val maestro = &quot;Maestro&quot;
+const val master = &quot;MasterCard&quot;
+const val visa = &quot;VISA&quot;
+const val mir = &quot;РњРёСЂ&quot;
+const val vk = &quot;VK Pay&quot;
+const val maxMaestro = 75000_00
+const val fixMaestro = 20_00
+const val percentMaestro = 0.06
+const val fixVisa = 35_00
+const val percentVisa = 0.0075
+const val percentVk = 0
+
+fun main() {
+<span class="nc" id="L14">    visualPrint(type = maestro, transfer = 100_00)</span>
+<span class="nc" id="L15">    visualPrint(maestro, 400_00, 100_00)</span>
+<span class="nc" id="L16">    visualPrint(maestro, 100_000_00, 50_00)</span>
+<span class="nc" id="L17">    visualPrint(master, 0, 100_00)</span>
+<span class="nc" id="L18">    visualPrint(mir, 100_000_00, 5000_00)</span>
+<span class="nc" id="L19">    visualPrint(vk, 100_000_00, 5000_00)</span>
+<span class="nc" id="L20">    visualPrint(previousBuy = 100_000_00, transfer = 15000_00)</span>
+<span class="nc" id="L21">    visualPrint(transfer = 25000_00)</span>
+<span class="nc" id="L22">}</span>
+
+<span class="nc" id="L24">fun visualPrint(type: String = vk, previousBuy: Int = 0, transfer: Int) {</span>
+<span class="nc" id="L25">    println(&quot;................................................&quot;)</span>
+<span class="nc" id="L26">    println(&quot;РЎСѓРјРјР°: &quot; + rubConvert(transfer))</span>
+<span class="nc" id="L27">    println(&quot;РўРёРї РєР°СЂС‚С‹: $type&quot;)</span>
+<span class="nc" id="L28">    println(&quot;РџРµСЂРµРІРѕРґС‹ РІ СЌС‚РѕРј РјРµСЃСЏС†Рµ: &quot; + rubConvert(previousBuy))</span>
+<span class="nc" id="L29">    println(&quot;РљРѕРјРёСЃСЃРёСЏ: &quot; + rubConvert(commission(type, previousBuy, transfer)))</span>
+<span class="nc" id="L30">}</span>
+
+fun commission(type: String, previousBuy: Int, transfer: Int): Int {
+<span class="pc bpc" id="L33" title="1 of 4 branches missed.">    when (type) {</span>
+        maestro, master -&gt; {
+<span class="fc bfc" id="L35" title="All 6 branches covered.">            return if ((previousBuy + transfer) in (1..maxMaestro)) 0</span>
+<span class="fc" id="L36">            else (fixMaestro + percentMaestro * transfer).toInt()</span>
+        }
+        visa, mir -&gt; {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            return if (percentVisa * transfer &gt; fixMaestro)</span>
+<span class="fc" id="L40">                (percentVisa * transfer).toInt()</span>
+<span class="fc" id="L41">            else fixVisa</span>
+        }
+        vk -&gt; {
+<span class="nc" id="L44">            return (percentVk * transfer)</span>
+        }
+    }
+<span class="fc" id="L47">    return 0</span>
+}
+
+fun rubConvert(amount: Int): String {
+<span class="fc" id="L51">    return (amount / 100).toString() + &quot; СЂСѓР± &quot; + amount % 100 + &quot; РєРѕРї&quot;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

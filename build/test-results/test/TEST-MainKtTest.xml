@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainKtTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-07-12T03:31:28" hostname="DESKTOP-N6UF1DS" time="0.02">
+  <properties/>
+  <testcase name="commissionMasterMax" classname="MainKtTest" time="0.01"/>
+  <testcase name="commissionMaster" classname="MainKtTest" time="0.0"/>
+  <testcase name="commissionVk" classname="MainKtTest" time="0.0"/>
+  <testcase name="rubConvert" classname="MainKtTest" time="0.0"/>
+  <testcase name="commissionVisaFix" classname="MainKtTest" time="0.002"/>
+  <testcase name="commissionMaestro" classname="MainKtTest" time="0.0"/>
+  <testcase name="commissionVisa" classname="MainKtTest" time="0.001"/>
+  <testcase name="commissionMaestroMax" classname="MainKtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
